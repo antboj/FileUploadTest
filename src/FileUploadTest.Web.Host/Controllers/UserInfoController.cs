@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Abp.AspNetCore.Mvc.Controllers;
 using Abp.Domain.Repositories;
@@ -47,6 +48,7 @@ namespace FileUploadTest.Web.Host.Controllers
                 Directory.CreateDirectory(_environment.WebRootPath + "\\uploads\\");
             }
             var localFileName = Path.GetFileName(file.FileName);
+            //var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\uploads\\", localFileName);
             if (file.Length > 0)
             {
