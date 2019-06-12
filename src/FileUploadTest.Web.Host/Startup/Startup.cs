@@ -64,6 +64,7 @@ namespace FileUploadTest.Web.Host.Startup
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new Info { Title = "FileUploadTest API", Version = "v1" });
+                // Allow swagger file upload
                 options.OperationFilter<FormFileSwaggerFilter>();
                 options.DocInclusionPredicate((docName, description) => true);
 
