@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Abp.Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FileUploadTest.Models
 {

@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.WebUtilities;
@@ -37,22 +38,21 @@ namespace FileUploadTest.Web.Host.Controllers
             _environment = environment;
         }
 
-        [HttpPost("api/UserInfo/Create")]
-        public async Task Create(UserInfoDto input)
-        {
-            var imgName = await Upload(input.Image);
-            var userInfo = new UserInfo
-            {
-                FirstName = input.FirstName,
-                LastName = input.LastName,
-                Username = input.Username,
-                Role = input.Role,
-                Image = imgName
-            };
-            await _repository.InsertAsync(userInfo);
-        }
-
-        //[HttpPost("api/UserInfo/Upload")]
+        //[HttpPost("api/UserInfo/Create")]
+        //public async Task Create(UserInfoDto input)
+        //{
+        //    var imgName = await Upload(input.Image);
+        //    var userInfo = new UserInfo
+        //    {
+        //        FirstName = input.FirstName,
+        //        LastName = input.LastName,
+        //        Username = input.Username,
+        //        Role = input.Role,
+        //        Image = imgName
+        //    };
+        //    await _repository.InsertAsync(userInfo);
+        //}
+        
         protected async Task<string> Upload([FromForm]IFormFile file)
         {
             var uploadsFolder = _environment.WebRootPath + "\\uploads\\";
@@ -74,6 +74,7 @@ namespace FileUploadTest.Web.Host.Controllers
         }
 
         [HttpPost("api/UserInfo/Upload")]
+        //[DisableFormValueModelBinding]
         public async Task StreamUpload()
         {
             if (!MultipartRequestHelper.IsMultipartContentType(Request.ContentType))
@@ -82,7 +83,7 @@ namespace FileUploadTest.Web.Host.Controllers
             }
 
             var formAccumulator = new KeyValueAccumulator();
-            string targetFilePath = _environment.WebRootPath + "\\uploads\\";
+            var targetFilePath = _environment.WebRootPath + "\\uploads\\";
 
             if (!Directory.Exists(targetFilePath))
             {
@@ -123,9 +124,9 @@ namespace FileUploadTest.Web.Host.Controllers
                         {
                             // The value length limit is enforced by MultipartBodyLengthLimit
                             var value = await streamReader.ReadToEndAsync();
-                            if (String.Equals(value, "undefined", StringComparison.OrdinalIgnoreCase))
+                            if (string.Equals(value, "undefined", StringComparison.OrdinalIgnoreCase))
                             {
-                                value = String.Empty;
+                                value = string.Empty;
                             }
 
                             formAccumulator.Append(key.ToString(), value);
@@ -145,9 +146,10 @@ namespace FileUploadTest.Web.Host.Controllers
                 BindingSource.Form,
                 new FormCollection(formAccumulator.GetResults()),
                 CultureInfo.CurrentCulture);
-            var bindingSuccessful = await TryUpdateModelAsync(userInfo, prefix: "",
-                valueProvider: formValueProvider);
-            if (bindingSuccessful)
+            //var bindingSuccessful = await TryUpdateModelAsync(userInfo, prefix: "",
+            //    valueProvider: formValueProvider);
+            var bind = await TryUpdateModelAsync(userInfo, "", formValueProvider);
+            if (bind)
             {
                 var user = new UserInfo
                 {
@@ -157,6 +159,7 @@ namespace FileUploadTest.Web.Host.Controllers
                     Role = userInfo.Role,
                     Image = userInfo.Image.FileName
                 };
+
                 _repository.Insert(user);
             }
         }
