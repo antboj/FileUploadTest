@@ -5673,3 +5673,91 @@ DEBUG 2019-06-12 15:54:48,312 [2    ] Abp.Modules.AbpModuleManager             -
 DEBUG 2019-06-12 15:54:48,313 [2    ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
 DEBUG 2019-06-12 15:54:48,314 [2    ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
 DEBUG 2019-06-12 15:54:48,314 [2    ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2019-06-12 15:59:56,800 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-06-12 15:59:56,852 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-06-12 15:59:56,864 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: FileUploadTest.Web.Host.Startup.FileUploadTestWebHostModule, FileUploadTest.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,866 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: FileUploadTest.FileUploadTestWebCoreModule, FileUploadTest.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,866 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: FileUploadTest.FileUploadTestApplicationModule, FileUploadTest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,866 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: FileUploadTest.FileUploadTestCoreModule, FileUploadTest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,866 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,866 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,866 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,867 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,867 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: FileUploadTest.EntityFrameworkCore.FileUploadTestEntityFrameworkModule, FileUploadTest.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,867 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,867 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,867 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,867 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,868 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,868 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:56,870 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-06-12 15:59:56,919 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-06-12 15:59:56,919 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-06-12 15:59:56,919 [1    ] o.Configuration.LanguageManagementConfig - Converted FileUploadTest (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-06-12 15:59:56,919 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-06-12 15:59:57,135 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: FileUploadTest.EntityFrameworkCore.FileUploadTestDbContext, FileUploadTest.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-06-12 15:59:57,820 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-06-12 15:59:57,843 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-06-12 15:59:57,850 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-06-12 15:59:57,854 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: FileUploadTest
+DEBUG 2019-06-12 15:59:57,857 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-06-12 15:59:57,976 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-06-12 15:59:58,006 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 10 classes define auto mapping attributes
+DEBUG 2019-06-12 15:59:58,007 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - FileUploadTest.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-06-12 15:59:58,011 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - FileUploadTest.Users.Dto.CreateUserDto
+DEBUG 2019-06-12 15:59:58,012 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - FileUploadTest.Users.Dto.UserDto
+DEBUG 2019-06-12 15:59:58,012 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - FileUploadTest.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-06-12 15:59:58,012 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - FileUploadTest.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-06-12 15:59:58,012 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - FileUploadTest.Roles.Dto.CreateRoleDto
+DEBUG 2019-06-12 15:59:58,012 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - FileUploadTest.Roles.Dto.PermissionDto
+DEBUG 2019-06-12 15:59:58,012 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - FileUploadTest.Roles.Dto.RoleDto
+DEBUG 2019-06-12 15:59:58,013 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - FileUploadTest.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-06-12 15:59:58,013 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - FileUploadTest.MultiTenancy.Dto.TenantDto
+INFO  2019-06-12 16:00:02,569 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-06-12 16:00:07,621 [17   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action FileUploadTest.Web.Host.Controllers.HomeController.Index (FileUploadTest.Web.Host)
+INFO  2019-06-12 16:00:08,270 [17   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method FileUploadTest.Web.Host.Controllers.HomeController.Index (FileUploadTest.Web.Host) - Validation state: Valid
+INFO  2019-06-12 16:00:08,274 [17   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method FileUploadTest.Web.Host.Controllers.HomeController.Index (FileUploadTest.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 1.3694ms.
+INFO  2019-06-12 16:00:08,431 [18   ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-06-12 16:00:08,442 [18   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action FileUploadTest.Web.Host.Controllers.HomeController.Index (FileUploadTest.Web.Host) in 816.2285ms
+INFO  2019-06-12 16:00:08,482 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 5916.3548ms 302 
+INFO  2019-06-12 16:00:08,484 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger  
+INFO  2019-06-12 16:00:08,494 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 9.1586ms 301 
+INFO  2019-06-12 16:00:08,496 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-06-12 16:00:08,517 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 19.8338ms 200 text/html
+INFO  2019-06-12 16:00:08,528 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-06-12 16:00:08,529 [16   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-06-12 16:00:08,532 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-06-12 16:00:08,537 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2019-06-12 16:00:08,539 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2019-06-12 16:00:08,582 [14   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.js'. Physical path: 'C:\Users\bild99\source\repos\FileUploadTest\src\FileUploadTest.Web.Host\wwwroot\swagger\ui\abp.js'
+INFO  2019-06-12 16:00:08,583 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.swagger.js'. Physical path: 'C:\Users\bild99\source\repos\FileUploadTest\src\FileUploadTest.Web.Host\wwwroot\swagger\ui\abp.swagger.js'
+INFO  2019-06-12 16:00:08,585 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 46.9547ms 200 application/javascript
+INFO  2019-06-12 16:00:08,587 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 46.3634ms 200 application/javascript
+INFO  2019-06-12 16:00:08,600 [18   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+INFO  2019-06-12 16:00:08,603 [18   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 74.6556ms 200 text/css
+INFO  2019-06-12 16:00:08,608 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+INFO  2019-06-12 16:00:08,615 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+INFO  2019-06-12 16:00:08,617 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 85.3435ms 200 application/javascript
+INFO  2019-06-12 16:00:08,619 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 88.5269ms 200 application/javascript
+INFO  2019-06-12 16:00:08,717 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js.map  
+INFO  2019-06-12 16:00:08,733 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-bundle.js.map'. Physical path: 'N/A'
+INFO  2019-06-12 16:00:08,735 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 17.5783ms 200 text/plain
+INFO  2019-06-12 16:00:08,993 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js.map  
+INFO  2019-06-12 16:00:09,005 [17   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-standalone-preset.js.map'. Physical path: 'N/A'
+INFO  2019-06-12 16:00:09,007 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 14.0473ms 200 text/plain
+INFO  2019-06-12 16:00:09,115 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-06-12 16:00:09,267 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 150.8496ms 200 application/json;charset=utf-8
+INFO  2019-06-12 16:00:11,254 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:21021/api/UserInfo/Upload multipart/form-data; boundary=--------------------------639673763634213848291843 66408
+INFO  2019-06-12 16:00:11,274 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "StreamUpload", controller = "UserInfo", area = ""}. Executing action FileUploadTest.Web.Host.Controllers.UserInfoController.StreamUpload (FileUploadTest.Web.Host)
+INFO  2019-06-12 16:00:11,421 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method FileUploadTest.Web.Host.Controllers.UserInfoController.StreamUpload (FileUploadTest.Web.Host) - Validation state: Valid
+INFO  2019-06-12 16:00:21,454 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method FileUploadTest.Web.Host.Controllers.UserInfoController.StreamUpload (FileUploadTest.Web.Host), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 10030.1225ms.
+INFO  2019-06-12 16:00:21,482 [12   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-06-12 16:00:21,495 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action FileUploadTest.Web.Host.Controllers.UserInfoController.StreamUpload (FileUploadTest.Web.Host) in 10218.659ms
+INFO  2019-06-12 16:00:21,497 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 10243.3401ms 200 application/json; charset=utf-8
+INFO  2019-06-12 16:00:41,741 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:21021/api/UserInfo/Upload multipart/form-data; boundary=--------------------------278256934402041622953487 66408
+INFO  2019-06-12 16:00:41,749 [14   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "StreamUpload", controller = "UserInfo", area = ""}. Executing action FileUploadTest.Web.Host.Controllers.UserInfoController.StreamUpload (FileUploadTest.Web.Host)
+INFO  2019-06-12 16:00:41,752 [14   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method FileUploadTest.Web.Host.Controllers.UserInfoController.StreamUpload (FileUploadTest.Web.Host) - Validation state: Valid
+INFO  2019-06-12 16:00:46,672 [14   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method FileUploadTest.Web.Host.Controllers.UserInfoController.StreamUpload (FileUploadTest.Web.Host), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 4917.7058ms.
+INFO  2019-06-12 16:00:46,683 [6    ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-06-12 16:00:46,685 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action FileUploadTest.Web.Host.Controllers.UserInfoController.StreamUpload (FileUploadTest.Web.Host) in 4934.7602ms
+INFO  2019-06-12 16:00:46,688 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 4946.9408ms 200 application/json; charset=utf-8

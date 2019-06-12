@@ -106,7 +106,8 @@ namespace FileUploadTest.Web.Host.Controllers
                 {
                     if (MultipartRequestHelper.HasFileContentDisposition(contentDisposition))
                     {
-                        var fullPath = Path.Combine(targetFilePath, contentDisposition.FileName.ToString());
+                        var uniqueName = Guid.NewGuid() + "_" + contentDisposition.FileName;
+                        var fullPath = Path.Combine(targetFilePath, uniqueName);
                         using (var targetStream = System.IO.File.Create(fullPath))
                         {
                             await section.Body.CopyToAsync(targetStream);
@@ -148,7 +149,7 @@ namespace FileUploadTest.Web.Host.Controllers
                 valueProvider: formValueProvider);
             if (bindingSuccessful)
             {
-                var us = new UserInfo
+                var user = new UserInfo
                 {
                     Username = userInfo.Username,
                     LastName = userInfo.LastName,
@@ -156,7 +157,7 @@ namespace FileUploadTest.Web.Host.Controllers
                     Role = userInfo.Role,
                     Image = userInfo.Image.FileName
                 };
-                _repository.Insert(us);
+                _repository.Insert(user);
             }
         }
     }
