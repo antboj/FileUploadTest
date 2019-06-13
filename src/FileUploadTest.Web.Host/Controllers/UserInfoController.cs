@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 using Abp;
 using Abp.AspNetCore.Mvc.Controllers;
@@ -14,16 +9,11 @@ using FileUploadTest.Models;
 using FileUploadTest.UserInfoService;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Connections;
-using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Net.Http.Headers;
-using ContentDispositionHeaderValue = Microsoft.Net.Http.Headers.ContentDispositionHeaderValue;
-using MediaTypeHeaderValue = Microsoft.Net.Http.Headers.MediaTypeHeaderValue;
 
 namespace FileUploadTest.Web.Host.Controllers
 {
@@ -38,21 +28,21 @@ namespace FileUploadTest.Web.Host.Controllers
             _environment = environment;
         }
 
-        //[HttpPost("api/UserInfo/Create")]
-        //public async Task Create(UserInfoDto input)
-        //{
-        //    var imgName = await Upload(input.Image);
-        //    var userInfo = new UserInfo
-        //    {
-        //        FirstName = input.FirstName,
-        //        LastName = input.LastName,
-        //        Username = input.Username,
-        //        Role = input.Role,
-        //        Image = imgName
-        //    };
-        //    await _repository.InsertAsync(userInfo);
-        //}
-        
+        [HttpPost("api/UserInfo/Create")]
+        public async Task Create(UserInfoCreateDto input)
+        {
+            var imgName = await Upload(input.Image);
+            var userInfo = new UserInfo
+            {
+                FirstName = input.FirstName,
+                LastName = input.LastName,
+                Username = input.Username,
+                Role = input.Role,
+                Image = imgName
+            };
+            await _repository.InsertAsync(userInfo);
+        }
+
         protected async Task<string> Upload([FromForm]IFormFile file)
         {
             var uploadsFolder = _environment.WebRootPath + "\\uploads\\";
@@ -74,14 +64,14 @@ namespace FileUploadTest.Web.Host.Controllers
         }
 
         [HttpPost("api/UserInfo/Upload")]
-        //[DisableFormValueModelBinding]
         public async Task StreamUpload()
         {
             if (!MultipartRequestHelper.IsMultipartContentType(Request.ContentType))
             {
-                throw new AbpException("rip");
+                throw new AbpException($"Expected a multipart request, but got {Request.ContentType}");
             }
 
+            var uniqueName = "";
             var formAccumulator = new KeyValueAccumulator();
             var targetFilePath = _environment.WebRootPath + "\\uploads\\";
 
@@ -107,7 +97,7 @@ namespace FileUploadTest.Web.Host.Controllers
                 {
                     if (MultipartRequestHelper.HasFileContentDisposition(contentDisposition))
                     {
-                        var uniqueName = Guid.NewGuid() + "_" + contentDisposition.FileName;
+                        uniqueName = Guid.NewGuid() + "_" + contentDisposition.FileName;
                         var fullPath = Path.Combine(targetFilePath, uniqueName);
                         using (var targetStream = System.IO.File.Create(fullPath))
                         {
@@ -117,10 +107,9 @@ namespace FileUploadTest.Web.Host.Controllers
                     else if (MultipartRequestHelper.HasFormDataContentDisposition(contentDisposition))
                     {
                         var key = HeaderUtilities.RemoveQuotes(contentDisposition.Name);
-                        //var encoding = Encoding.GetEncoding(section.ToString());
                         using (var streamReader = new StreamReader(
                             section.Body,
-                            detectEncodingFromByteOrderMarks: true))
+                             true))
                         {
                             // The value length limit is enforced by MultipartBodyLengthLimit
                             var value = await streamReader.ReadToEndAsync();
@@ -133,34 +122,34 @@ namespace FileUploadTest.Web.Host.Controllers
 
                             if (formAccumulator.ValueCount > FormOptions.DefaultBufferBodyLengthLimit)
                             {
-                                throw new AbpException("rip");
+                                throw new AbpException("Form key count limit exceeded");
                             }
                         }
                     }
                     section = await reader.ReadNextSectionAsync();
                 }
-                
             }
             var userInfo = new UserInfoDto();
             var formValueProvider = new FormValueProvider(
                 BindingSource.Form,
                 new FormCollection(formAccumulator.GetResults()),
                 CultureInfo.CurrentCulture);
-            //var bindingSuccessful = await TryUpdateModelAsync(userInfo, prefix: "",
-            //    valueProvider: formValueProvider);
-            var bind = await TryUpdateModelAsync(userInfo, "", formValueProvider);
-            if (bind)
+            var bindingSuccessful = await TryUpdateModelAsync(userInfo, "", formValueProvider);
+            if (bindingSuccessful)
             {
-                var user = new UserInfo
+                if (ModelState.IsValid)
                 {
-                    Username = userInfo.Username,
-                    LastName = userInfo.LastName,
-                    FirstName = userInfo.FirstName,
-                    Role = userInfo.Role,
-                    Image = userInfo.Image.FileName
-                };
+                    var user = new UserInfo
+                    {
+                        Username = userInfo.Username,
+                        LastName = userInfo.LastName,
+                        FirstName = userInfo.FirstName,
+                        Role = userInfo.Role,
+                        Image = uniqueName
+                    };
 
-                _repository.Insert(user);
+                    _repository.Insert(user);
+                }
             }
         }
     }
