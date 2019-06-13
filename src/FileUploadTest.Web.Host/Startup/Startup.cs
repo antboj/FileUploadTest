@@ -14,7 +14,6 @@ using Abp.Castle.Logging.Log4Net;
 using Abp.Extensions;
 using FileUploadTest.Configuration;
 using FileUploadTest.Identity;
-
 using Abp.AspNetCore.SignalR.Hubs;
 
 namespace FileUploadTest.Web.Host.Startup
@@ -36,7 +35,7 @@ namespace FileUploadTest.Web.Host.Startup
             services.AddMvc(
                 options => options.Filters.Add(new CorsAuthorizationFilterFactory(_defaultCorsPolicyName))
             );
-
+            
             IdentityRegistrar.Register(services);
             AuthConfigurer.Configure(services, _appConfiguration);
 
